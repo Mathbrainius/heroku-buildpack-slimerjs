@@ -16,12 +16,12 @@ XVFB_BINARIES_URL=https://raw.githubusercontent.com/ngshuhan/heroku-buildpack-sl
 echo "-----> Fetching and extracting SlimerJS binaries"
 echo "-----> BinaryURL: ${SLIMERJS_BINARIES_URL}"
 mkdir -p $BUILD_DIR/vendor
-curl -s $SLIMERJS_BINARIES_URL | tar xj -C $CACHE_DIR
+curl -sL $SLIMERJS_BINARIES_URL | tar xj -C $CACHE_DIR
 mv $CACHE_DIR/$SLIMERJS_ARCHIVE_NAME $BUILD_DIR/vendor/slimerjs
 
 echo "-----> Fetching and extracting Xvfb binaries"
 mkdir -p $BUILD_DIR/vendor/xvfb
-curl -sL $XVFB_BINARIES_URL | tar xz -C $BUILD_DIR/vendor
+curl -s $XVFB_BINARIES_URL | tar xz -C $BUILD_DIR/vendor
 
 mkdir -p $BUILD_DIR/bin
 mv $BUILD_DIR/vendor/xvfb/xkbcomp $BUILD_DIR/bin
