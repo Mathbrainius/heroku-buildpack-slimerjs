@@ -6,12 +6,12 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 # config
-VERSION="0.9.5"
+VERSION="0.10.3"
 
 # Buildpack URL
 SLIMERJS_ARCHIVE_NAME=slimerjs-${VERSION}
-SLIMERJS_BINARIES_URL=http://download.slimerjs.org/releases/${VERSION}/${SLIMERJS_ARCHIVE_NAME}-linux-x86_64.tar.bz2
-XVFB_BINARIES_URL=https://raw.githubusercontent.com/methyl/heroku-buildpack-slimerjs/master/xvfb.tar.gz
+SLIMERJS_BINARIES_URL=http://download.slimerjs.org/releases/${VERSION}/${SLIMERJS_ARCHIVE_NAME}.tar.bz2
+XVFB_BINARIES_URL=https://raw.githubusercontent.com/ngshuhan/heroku-buildpack-slimerjs/master/xvfb.tar.gz
 
 echo "-----> Fetching and extracting SlimerJS binaries"
 mkdir -p $BUILD_DIR/vendor
