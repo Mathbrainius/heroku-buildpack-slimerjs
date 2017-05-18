@@ -11,7 +11,7 @@ VERSION="0.10.3"
 # Buildpack URL
 SLIMERJS_ARCHIVE_NAME=slimerjs-${VERSION}
 SLIMERJS_BINARIES_URL=http://download.slimerjs.org/releases/${VERSION}/${SLIMERJS_ARCHIVE_NAME}.tar.bz2
-XVFB_BINARIES_URL=https://raw.githubusercontent.com/ngshuhan/heroku-buildpack-slimerjs/master/xvfb.tar.gz
+# XVFB_BINARIES_URL=https://raw.githubusercontent.com/ngshuhan/heroku-buildpack-slimerjs/master/xvfb.tar.gz
 
 echo "-----> Fetching and extracting SlimerJS binaries"
 echo "-----> BinaryURL: ${SLIMERJS_BINARIES_URL}"
@@ -19,18 +19,18 @@ mkdir -p $BUILD_DIR/vendor
 curl -sL $SLIMERJS_BINARIES_URL | tar xj -C $CACHE_DIR
 mv $CACHE_DIR/$SLIMERJS_ARCHIVE_NAME $BUILD_DIR/vendor/slimerjs
 
-echo "-----> Fetching and extracting Xvfb binaries"
-mkdir -p $BUILD_DIR/vendor/xvfb
-curl -s $XVFB_BINARIES_URL | tar xz -C $BUILD_DIR/vendor
+# echo "-----> Fetching and extracting Xvfb binaries"
+# mkdir -p $BUILD_DIR/vendor/xvfb
+# curl -s $XVFB_BINARIES_URL | tar xz -C $BUILD_DIR/vendor
 
-mkdir -p $BUILD_DIR/bin
-mv $BUILD_DIR/vendor/xvfb/xkbcomp $BUILD_DIR/bin
+# mkdir -p $BUILD_DIR/bin
+# mv $BUILD_DIR/vendor/xvfb/xkbcomp $BUILD_DIR/bin
 
 echo "-----> exporting PATH and LIBRARY_PATH"
 PROFILE_PATH="$BUILD_DIR/.profile.d/slimerjs.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:/app/vendor/slimerjs:/app/vendor/xvfb"' >> $PROFILE_PATH
-echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/app/vendor/xvfb"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:/app/vendor/slimerjs"' >> $PROFILE_PATH
+# echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/app/vendor/xvfb"' >> $PROFILE_PATH
 
 
 # symlink libs to where Xvfb searches
