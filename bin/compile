@@ -55,7 +55,7 @@ export SLIMERDIR="/app/vendor/slimerjs"
 echo "-----> installing nano and export PATH"
 mkdir $CACHE_DIR/nano
 curl http://ehryk.com/Share/heroku-nano/nano.tar.gz --location --silent | tar xz -C $CACHE_DIR/nano
-mv $CACHE_DIR/vim $BUILD_DIR/vendor/nano
+mv $CACHE_DIR/nano $BUILD_DIR/vendor/nano
 export PATH=$PATH:/app/vendor/nano/bin
 
 
