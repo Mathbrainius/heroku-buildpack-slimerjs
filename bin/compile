@@ -52,11 +52,12 @@ find $1/.apt/usr/share/fonts/X11 -type d | xargs $1/.apt/usr/bin/mkfontdir
 export SLIMERJSLAUNCHER="/app/vendor/firefox/firefox"
 export SLIMERDIR="/app/vendor/slimerjs"
 
-echo "-----> installing vim and export PATH"
-mkdir $CACHE_DIR/vim
-curl https://s3.amazonaws.com/heroku-vim/vim-7.3.tar.gz --location --silent | tar xz -C $CACHE_DIR/vim
-mv $CACHE_DIR/vim $BUILD_DIR/vendor/vim
-export PATH=$PATH:/app/vendor/vim/bin
+echo "-----> installing nano and export PATH"
+mkdir $CACHE_DIR/nano
+curl http://ehryk.com/Share/heroku-nano/nano.tar.gz --location --silent | tar xz -C $CACHE_DIR/nano
+mv $CACHE_DIR/vim $BUILD_DIR/vendor/nano
+export PATH=$PATH:/app/vendor/nano/bin
+
 
 
 
