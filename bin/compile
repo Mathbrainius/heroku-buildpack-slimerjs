@@ -21,7 +21,7 @@ SLIMERJS_BINARIES_URL=https://raw.githubusercontent.com/ngshuhan/heroku-buildpac
 echo "-----> Fetching and extracting SlimerJS binaries"
 echo "-----> BinaryURL: ${SLIMERJS_BINARIES_URL}"
 mkdir -p $BUILD_DIR/vendor
-curl -s $SLIMERJS_BINARIES_URL | tar xvf -C $CACHE_DIR
+curl -s $SLIMERJS_BINARIES_URL | tar xvf - -C $CACHE_DIR
 # curl -sL $SLIMERJS_BINARIES_URL | tar xj -C $CACHE_DIR
 mv $CACHE_DIR/$SLIMERJS_ARCHIVE_NAME $BUILD_DIR/vendor/slimerjs
 
