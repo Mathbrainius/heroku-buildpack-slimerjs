@@ -52,5 +52,11 @@ find $1/.apt/usr/share/fonts/X11 -type d | xargs $1/.apt/usr/bin/mkfontdir
 export SLIMERJSLAUNCHER="/app/vendor/firefox/firefox"
 export SLIMERDIR="/app/vendor/slimerjs"
 
+echo "-----> installing vim and export PATH"
+mkdir vim
+curl https://s3.amazonaws.com/heroku-vim/vim-7.3.tar.gz --location --silent | tar xz -C vim
+export PATH=$PATH:/app/vim/bin
+
+
 
 
