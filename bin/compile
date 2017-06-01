@@ -64,9 +64,6 @@ curl http://ehryk.com/Share/heroku-nano/nano.tar.gz --location --silent | tar xz
 mv $CACHE_DIR/nano $BUILD_DIR/vendor/nano
 export PATH=$PATH:/app/vendor/nano/bin
 
-echo "---------> checking graphic card"
-sudo lshw -C video
-
 
 
 
